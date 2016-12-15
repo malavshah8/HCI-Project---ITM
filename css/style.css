@@ -1,0 +1,123 @@
+canvas {
+	position: absolute;
+	margin-left: 300px;
+    margin-top: 150px;
+	top: 0px;
+    width:770px;
+    height: 500px;
+    border: 1px solid white;
+}
+
+.verticalLine {
+    border-left: solid #b39e9e;
+    height: 570px;
+    margin-left: 930px;
+    position: absolute;
+}
+.verticalLine2 {
+    border-left: solid #b39e9e;
+    height: 570px;
+    margin-left: 120px;
+    position: absolute;
+}
+.rightMenu{
+    background-color:blue;
+    height:586px;
+    width:267px;
+    margin-top:-20px;
+    text-align:center;
+}
+
+#controls{
+    left: 1000px !important
+}
+
+#diceName {
+	font-size:25px;
+	font-weight: bold;
+    word-break: break-word;
+    margin-left: 20px;
+}
+
+#diceControl {
+	cursor: pointer;
+    margin-top: 50px !important;
+    width: 200px;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.background{
+    background-image: url('img/snakesAndLadder.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.customWidth{
+    width: 200px;
+} 
+#headingColor{
+    color: #ccc;
+}
+
+#expand{
+    width: 65%;
+}
+
+#freeSpace{
+    margin-top: -5%;
+    height: 70px;
+}
+
+#heightLimit{
+    height: 60px;
+}
+
+.taskMargin{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

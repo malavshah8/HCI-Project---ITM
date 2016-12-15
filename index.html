@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ITM</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Add IntroJs styles -->
+    <link href="css/introjs.css" rel="stylesheet">
+    <script type="text/javascript" src="js/intro.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script
+	src="https://code.jquery.com/jquery-1.12.4.min.js"
+	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+	crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			jQuery('#wizard').click();
+		});
+	</script>
+	<script type="text/javascript">
+		function showInput(){
+			document.getElementById('taskName1Display').value = 
+			document.getElementById("taskName1").value;
+			document.getElementById('taskName2Display').value = 
+			document.getElementById("taskName2").value;
+			document.getElementById('taskName3Display').value = 
+			document.getElementById("taskName3").value;
+			document.getElementById('taskName4Display').value = 
+			document.getElementById("taskName4").value;
+			document.getElementById('taskName5Display').value = 
+			document.getElementById("taskName5").value;
+			clicked2();
+		}
+
+		function showSartTime(){
+			var s1 = document.getElementById('endTime1');
+			var s1Value = s1.options[s1.selectedIndex].text;
+			document.getElementById('endTime1Display').value = s1Value
+
+			var s2 = document.getElementById('endTime2');
+			var s2Value = s2.options[s2.selectedIndex].text;
+			document.getElementById('endTime2Display').value = s2Value
+			
+			var s3 = document.getElementById('endTime3');
+			var s3Value = s3.options[s3.selectedIndex].text;
+			document.getElementById('endTime3Display').value = s3Value
+
+			var s4 = document.getElementById('endTime4');
+			var s4Value = s4.options[s4.selectedIndex].text;
+			document.getElementById('endTime4Display').value = s4Value
+
+			var s5 = document.getElementById('endTime5');
+			var s5Value = s5.options[s5.selectedIndex].text;
+			document.getElementById('endTime5Display').value = s5Value
+		}
+
+		function reset(){
+			document.getElementById("taskName1").value = "";
+			document.getElementById("taskName2").value = "";
+			document.getElementById("taskName3").value = "";
+			document.getElementById("taskName4").value = "";
+			document.getElementById("taskName5").value = "";
+
+			document.getElementById("taskName1Display").value = "";
+			document.getElementById("taskName2Display").value = "";
+			document.getElementById("taskName3Display").value = "";
+			document.getElementById("taskName4Display").value = "";
+			document.getElementById("taskName5Display").value = "";
+
+			document.getElementById("endTime1").value = "";
+			document.getElementById("endTime2").value = "";
+			document.getElementById("endTime3").value = "";
+			document.getElementById("endTime4").value = "";
+			document.getElementById("endTime5").value = "";
+
+			document.getElementById("endTime1Display").value = "";
+			document.getElementById("endTime2Display").value = "";
+			document.getElementById("endTime3Display").value = "";
+			document.getElementById("endTime4Display").value = "";
+			document.getElementById("endTime5Display").value = "";
+
+			document.getElementById("taskDesc1").value = "";
+			document.getElementById("taskDesc2").value = "";
+			document.getElementById("taskDesc3").value = "";
+			document.getElementById("taskDesc4").value = "";
+			document.getElementById("taskDesc5").value = "";
+
+			document.getElementById("startTime1").value = "";
+			document.getElementById("startTime2").value = "";
+			document.getElementById("startTime3").value = "";
+			document.getElementById("startTime4").value = "";
+			document.getElementById("startTime5").value = "";
+
+
+		}
+
+		function hideChecked(){
+			if($('input.task1').is(':checked')){
+				$('#yo1').hide();
+				console.log('hidden');
+			}
+			if($('input.task2').is(':checked')){
+				$('#yo2').hide();
+				console.log('hidden');
+			}
+			if($('input.task3').is(':checked')){
+				$('#yo3').hide();
+				console.log('hidden');
+			}
+			if($('input.task4').is(':checked')){
+				$('#yo4').hide();
+				console.log('hidden');
+			}
+			if($('input.task5').is(':checked')){
+				$('#yo5').hide();
+				console.log('hidden');
+			}
+		}
+
+	</script>
+</head>	
+<body style="background-color: #4a4545; font-family: Tahoma, Geneva, sans-serif !important;">
+	<nav class="navbar navbar-inverse" style="background-color: #0b1a28;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Interactive Task Manager</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><buttton id="wizard" style="margin-top:10px;" class="btn btn-info btn-sm" href="javascript:void(0);" onclick="javascript:introJs().start();">How To Play?</buttton></li>
+
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="col-md-1">
+		<h3 style="margin-top: -10px; color: white" class="span6" data-step="1" data-intro="Click Here for adding tasks" data-position='right'><span class="" style="font-size:30px;cursor:pointer" onclick="clicked()" >&#9776;</span>&nbsp;Tasks</h3>
+		<table id="diceControl"><tr>
+			<td colspan="3"><h3 style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roll the dice!!</h3></td>
+		</tr>
+		<tr >
+			<td style="padding-top: 15px !important;"><img class="span6" data-step="4" data-intro="Click Here to roll the dice." data-position='right' height="50" width="50" src="images/face4.png" id="dice"></td>
+			<td><p id="diceName"></p></td>
+		</tr></table>
+		<input class="form-control" style="width:150px; margin-top: 30px; margin-left: 40px;" type="text" placeholder="Enter name" id="playerName">
+		<button class="btn btn-success span6" data-step="3" data-intro="Click Here to add a player." data-position='right' id="addPlayer" style="margin-top:10px; width: 150px; margin-left: 40px;">Add Player</button>
+		<div style="margin-top: 30px; margin-left: 30px; font-size:20px; font-weight: bold; word-break: break-word; width: 200px;">
+			<span class="nP" style="color: white">Current Players</span><br>
+			<span id="gamePlayers"></span>
+		</div>
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="clicked2()">&times;</a>
+			<div class="container">
+				<div class="col-lg-12" id="freeSpace">
+					<h1 style="color: white"">Schedule your tasks</h1>
+				</div>
+				<!-------------------------------------- TASK ONE ---------------------------->
+				<div class="col-lg-12">
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Task's Name<h4></label>
+								<input type="text" class="form-control" id="taskName1" name="taskName1" placeholder="Task's Name">
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Description<h4></label>
+								<input type="text" class="form-control" id="taskDesc1" name="taskName" placeholder="Task's Name">
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="Start Time"><h4 id="headingColor">Start Time<h4></label>
+								<select class="form-control" id="startTime1">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="End Time"><h4 id="headingColor">End Time<h4></label>
+								<select class="form-control" id="endTime1">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-------------------------------------- TASK TWO ---------------------------->
+				<div class="col-lg-12">
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Task's Name<h4></label>
+								<input type="text" class="form-control" id="taskName2" name="taskName2" placeholder="Task's Name">
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Description<h4></label>
+								<input type="text" class="form-control" id="taskDesc2" name="taskName" placeholder="Task's Name">
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="Start Time"><h4 id="headingColor">Start Time<h4></label>
+								<select class="form-control" id="startTime2">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="End Time"><h4 id="headingColor">End Time<h4></label>
+								<select class="form-control" id="endTime2">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-------------------------------------- TASK THREE ---------------------------->
+				<div class="col-lg-12">
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Task's Name<h4></label>
+								<input type="text" class="form-control" id="taskName3" name="taskName3" placeholder="Task's Name">
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Description<h4></label>
+								<input type="text" class="form-control" id="taskDesc3" name="taskName" placeholder="Task's Name">
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="Start Time"><h4 id="headingColor">Start Time<h4></label>
+								<select class="form-control" id="startTime3">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="End Time"><h4 id="headingColor">End Time<h4></label>
+								<select class="form-control" id="endTime3">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-------------------------------------- TASK FOUR ---------------------------->
+				<div class="col-lg-12">
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Task's Name<h4></label>
+								<input type="text" class="form-control" id="taskName4" name="taskName4" placeholder="Task's Name">
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Description<h4></label>
+								<input type="text" class="form-control" id="taskDesc4" name="taskName" placeholder="Task's Name">
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="Start Time"><h4 id="headingColor">Start Time<h4></label>
+								<select class="form-control" id="startTime4">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="End Time"><h4 id="headingColor">End Time<h4></label>
+								<select class="form-control" id="endTime4">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-------------------------------------- TASK FIVE ---------------------------->
+				<div class="col-lg-12">
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Task's Name<h4></label>
+								<input type="text" class="form-control" id="taskName5" name="taskName5" placeholder="Task's Name">
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group">
+								<label for="Task Name"><h4 id="headingColor">Description<h4></label>
+								<input type="text" class="form-control" id="taskDesc5" name="taskName" placeholder="Task's Name">
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="Start Time"><h4 id="headingColor">Start Time<h4></label>
+								<select class="form-control" id="startTime5">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>	
+					</div>
+					<div class="col-lg-3">
+						<form>
+							<div class="form-group form-control-lg">
+								<label id="expand" for="End Time"><h4 id="headingColor">End Time<h4></label>
+								<select class="form-control" id="endTime5">
+									<option>00:00</option>
+									<option>01:00</option>
+									<option>02:00</option>
+									<option>03:00</option>
+									<option>04:00</option>
+									<option>05:00</option>
+									<option>06:00</option>
+									<option>07:00</option>
+									<option>08:00</option>
+									<option>09:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+									<option>13:00</option>
+									<option>14:00</option>
+									<option>14:00</option>
+									<option>15:00</option>
+									<option>16:00</option>
+									<option>17:00</option>
+									<option>18:00</option>
+									<option>19:00</option>
+									<option>20:00</option>
+									<option>21:00</option>
+									<option>22:00</option>
+									<option>23:00</option>
+									<option>24:00</option>
+								</select>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-lg-12">
+					<button  type="button" class="btn-lg btn-success" onclick="showInput(); showSartTime();">Let's Play</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div style="color: white; font-size: 20px; margin-left: 450px;">
+			Snake & Ladder
+		</div>
+		<div class="col-md-2">
+			<div class="verticalLine"></div>
+			<div class="verticalLine2"></div>
+			<div id="controls" style="width: 220px">	
+				<div class="span6 row" data-step="2" data-intro="Your tasks will appear here." data-position='left' style="height:586px;width:267px;margin-top:-20px; text-align:center;" id="content">
+					<div class="col-md-12 taskMargin">
+						<div style="color: white; font-size: 22px; font-weight: bold;">Task History</div>
+					</div>
+					<div class="col-md-12 taskMargin" id="yo1">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>1</label>
+								<input type="checkbox" name="task1" aria-label="..." id="task1" class="task1">
+							</span>
+							<input id="taskName1Display" type="text" class="form-control taskDisplayName" aria-label="..." value="">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>Ends at</label>
+							</span>
+							<input id="endTime1Display" type="text" class="form-control taskDisplayName" aria-label="..." value="">
+						</div>
+					</div>
+					<div class="col-md-12 taskMargin" id="yo2">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>2</label>
+								<input type="checkbox" name="task2" aria-label="..." id="task2" class="task2">
+							</span>
+							<input id="taskName2Display" type="text" class="form-control taskDisplayName" aria-label="...">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>Ends at</label>
+							</span>
+							<input id="endTime2Display" type="text" class="form-control taskDisplayName" aria-label="..." value="">
+						</div>
+					</div>
+					<div class="col-md-12 taskMargin" id="yo3">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>3</label>
+								<input type="checkbox" name="task3" aria-label="..." id="task3" class="task3">
+							</span>
+							<input id="taskName3Display" type="text" class="form-control taskDisplayName" aria-label="...">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>Ends at</label>
+							</span>
+							<input id="endTime3Display" type="text" class="form-control taskDisplayName" aria-label="..." value="">
+						</div>
+					</div>
+					<div class="col-md-12 taskMargin" id="yo4">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>4</label>
+								<input type="checkbox" name="task4" aria-label="..." id="task4" class="task4">
+							</span>
+							<input id="taskName4Display" type="text" class="form-control taskDisplayName" aria-label="...">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>Ends at</label>
+							</span>
+							<input id="endTime4Display" type="text" class="form-control taskDisplayName" aria-label="..." value="">
+						</div>
+					</div>
+					<div class="col-md-12 taskMargin" id="yo5">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>5</label>
+								<input type="checkbox" name="task5" aria-label="..." id="task5" class="task5">
+							</span>
+							<input id="taskName5Display" type="text" class="form-control taskDisplayName" aria-label="...">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon">
+								<label>Ends at</label>
+							</span>
+							<input id="endTime5Display" type="text" class="form-control taskDisplayName" aria-label="..." value="">
+						</div>
+					</div>
+					
+					<div class="col-md-6 taskMargin">
+						<button class="btn btn-large btn-success span6"  data-step="5" data-intro="Click Here to reset all your tasks" data-position='left' onclick="reset();">Reset Tasks</button>
+					</div>
+					<div class="col-md-6 taskMargin">
+						<button class="btn btn-large btn-success span6" data-step="6" data-intro="Click Here to remove your checked completed Tasks." data-position='left' onclick="hideChecked();">Update Tasks</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img class="img-responsive" src="http://placehold.it/1200x600/555/000&text=One" alt="...">
+							<div class="carousel-caption">
+								One Image
+							</div>
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="http://placehold.it/1200x600/fffccc/000&text=Two" alt="...">
+							<div class="carousel-caption">
+								Another Image
+							</div>
+						</div>
+						<div class="item">
+							<img class="img-responsive" src="http://placehold.it/1200x600/fcf00c/000&text=Three" alt="...">
+							<div class="carousel-caption">
+								Another Image
+							</div>
+						</div>
+					</div>
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/saapSeedi.js"></script>
+	<script type="text/javascript" src="js/gamePlay.js"></script>
+	<script>
+		var toggle = function() {
+			var mydiv = document.getElementById('content');
+			if (mydiv.style.display === 'block' || mydiv.style.display === '')
+				mydiv.style.display = 'none';
+			else
+				mydiv.style.display = 'block'
+		}
+
+		var radios = document.getElementsByName('task');
+		for(i=0; i<radios.length; i++ ) {
+			radios[i].onclick = function(e) {
+				if(e.ctrlKey) {
+					this.checked = false;
+				} else{
+					this.checked = true;
+				}
+			}
+		}
+	</script>	
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "100%";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+		function clicked(){
+			openNav();
+			toggle();
+		}
+		function clicked2(){
+			closeNav();
+			toggle();
+		}
+	</script>
+</body>
+</html>
